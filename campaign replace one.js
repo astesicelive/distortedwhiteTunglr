@@ -1,5 +1,5 @@
-function campaignFirst() {
-  let $campaignEng = $('td:nth-child(6)');
+function may__campaignOne() {
+  let $campaignEng = $('td:nth-child(2)');
   $campaignEng.each(function() {
     let campaignJP = $(this).text()
       .replaceAll(/initial/g,'Music初期実装カード')
@@ -306,4 +306,4 @@ function campaignFirst() {
   })
 }
 
-campaignFirst();
+may__campaignOne();
