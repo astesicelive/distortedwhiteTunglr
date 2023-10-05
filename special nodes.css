@@ -86,6 +86,17 @@ a {
   margin: 0.85em auto;
   border-radius: 5px;
   border: 1px solid var(--accent);
+  width: 80%;
+}
+
+.item a.music {
+  background: #faefb1;
+  border-color: #faefb1;
+}
+
+.item a.basic {
+  background: #cbe2ff;
+  border-color: #cbe2ff;
 }
 
 .item a:hover {
@@ -93,6 +104,18 @@ a {
   color: var(--accent);
   border: 1px solid var(--accent);
   font-weight: bold;
+}
+
+.item a.music:hover {
+  background: var(--table);
+  border-color: #faefb1;
+  color: #faefb1;
+}
+
+.item a.basic:hover {
+  background: var(--table);
+  border-color: #cbe2ff;
+  color: #cbe2ff;
 }
 
 .item hr {
@@ -142,70 +165,52 @@ h1 {
   word-spacing: 10px;
 }
 
-.item a.music {
-  background: #faefb1;
-  border-color: #faefb1;
-}
-
-.item a.music:hover {
-  background: var(--table);
-  border-color: #faefb1;
-  color: #faefb1;
-}
-
-.item a.basic {
-  background: #cbe2ff;
-  border-color: #cbe2ff;
-}
-
-.item a.basic:hover {
-  background: var(--table);
-  border-color: #cbe2ff;
-  color: #cbe2ff;
-}
-
-.nodes {
-  column-count: 2;
-  column-gap: 1.5em;
-  margin-top: 1.2em;
+.gridBasic, .gridMusic {
   font-size: 0.8em;
   column-rule: 1px solid #fff;
 }
-.nodes p {
+.gridBasic p, .gridMusic p {
   margin-top: 0px;
   margin-bottom: 0.5em;
   text-align: center;
+  line-height: 0.9em;
 }
 
-h4 {
+.gridBasic h4, .gridMusic h4 {
   width: 75%;
   text-align: center;
-  border-bottom: 1px solid var(--accent);
   line-height: 0.1em;
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 1.75em;
+  margin-bottom: 1.2em;
 }
-h4 span {
+.gridBasic h4 span, .gridMusic h4 span {
   background: var(--box);
   padding: 0 10px;
-  color: var(--accent);
   font-size: 1.15em;
 }
 
-h4.basic {
-  border-bottom-color: #cbe2ff;
+.gridBasic h4 {
+  border-bottom: 1px solid #cbe2ff;
 }
 
-h4.basic span {
+.gridBasic h4 span {
   color: #cbe2ff;
 }
 
-h4.music {
-  border-bottom-color: #faefb1;
+.gridMusic h4 {
+  border-bottom: 1px solid #faefb1;
 }
 
-h4.music span {
+.gridMusic h4 span {
   color: #faefb1;
+}
+
+.infoContainer {
+  display: inline-grid;
+  grid-template-columns: 48% 48%;
+  column-gap: 4%;
+  width: 100%;
 }
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
