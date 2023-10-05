@@ -1,0 +1,226 @@
+/* CHANGE THE COLORS HERE */
+:root {
+  --bg: #35373a;
+  --font: #f0f0f0;
+  --accent: #b1ffda;
+  --header: #44474a;
+  --box: #44474a;
+  --table: #313235;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Montserrat';
+  font-size: 14px;
+  color: var(--font);
+  line-height: 120%;
+  word-wrap: break-word;
+  transition: all 0.4s;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.grid {
+  width: 90%;
+  height: calc(100vh - 230px);
+  margin: 0 auto 25px;
+}
+
+.grid .item {
+  display: block;
+  background: var(--box);
+  width: 23%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 1%;
+  border: 1px solid var(--borders);
+  border-radius: 5px;
+  height: 145px;
+  text-align: center;
+  overflow: hidden;
+  mask: linear-gradient(to top, transparent 0px, black 30px);
+}
+
+.grid .item h2 {
+  line-height: 1.15em;
+  min-height: 49px;
+}
+
+.item:hover {
+  height: auto;
+  z-index: 99999;
+  mask: unset;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.grid table {
+  width: 100%;
+  max-width: 100%;
+  margin: 10px 0;
+  margin-top: 0.5em;
+  background-color: var(--table) ;
+  border-radius: 5px;
+  text-align: center;
+  color: var(--accent);
+  /* text-transform: capitalize; */
+}
+
+.grid table td {
+  max-width: 150px;
+}
+
+.item a {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: var(--table);
+  padding: 6px 8px;
+  margin: 0.85em auto;
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+}
+
+.item a:hover {
+  background: var(--table);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-weight: bold;
+}
+
+.item hr {
+  width: 65%;
+  margin: 13px auto;
+}
+
+.filters {
+  width: calc(100% - 130px - 1.25em - 35px);
+  height: 100%;
+  max-height: 120px;
+  padding: 4px 10px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--borders) white;
+  background: var(--header);
+  border: 1px solid var(--borders);
+  border-radius: 8px;
+}
+
+.filters a {
+  color: var(--font);
+}
+
+.filters ul {padding:0;}
+.filters li {list-style-type: none; display: inline-block;}
+.filters li a {color: var(--font); margin: 0 5px;}
+.filters ul b {margin: 0 5px;}
+.selected {font-weight: bold; border-bottom: 2px solid var(--accent);}
+
+header {
+  width: 75%;
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.filter li{
+  cursor: pointer;
+}
+
+h1 {
+  line-height: 1.5em;
+  text-align: center;
+  letter-spacing: 7px;
+  word-spacing: 10px;
+}
+
+.item a.music {
+  background: #faefb1;
+  border-color: #faefb1;
+}
+
+.item a.music:hover {
+  background: var(--table);
+  border-color: #faefb1;
+  color: #faefb1;
+}
+
+.item a.basic {
+  background: #cbe2ff;
+  border-color: #cbe2ff;
+}
+
+.item a.basic:hover {
+  background: var(--table);
+  border-color: #cbe2ff;
+  color: #cbe2ff;
+}
+
+.nodes {
+  column-count: 2;
+  column-gap: 1.5em;
+  margin-top: 1.2em;
+  font-size: 0.8em;
+  column-rule: 1px solid #fff;
+}
+.nodes p {
+  margin-top: 0px;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+h4 {
+  width: 75%;
+  text-align: center;
+  border-bottom: 1px solid var(--accent);
+  line-height: 0.1em;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+h4 span {
+  background: var(--box);
+  padding: 0 10px;
+  color: var(--accent);
+  font-size: 1.15em;
+}
+
+h4.basic {
+  border-bottom-color: #cbe2ff;
+}
+
+h4.basic span {
+  color: #cbe2ff;
+}
+
+h4.music {
+  border-bottom-color: #faefb1;
+}
+
+h4.music span {
+  color: #faefb1;
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media only screen and (max-width: 1200px) {
+  .grid .item {
+      width: 31%;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+header {width: 92%;}
+.filters {width: calc(100% - 1.25em - 80px);}
+.grid .item {width: 48%; display: inline-block;}
+}
+
+@media only screen and (max-width: 600px) {
+.grid .item {width: 100%; display: inline-block; margin: 1% 0; height: auto; mask: unset;}
+}
