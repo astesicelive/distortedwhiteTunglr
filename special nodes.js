@@ -18,6 +18,8 @@ function may__title() {
   });
 };
 
+
+
 function may__info() {
 
   $('.item').each(function() {
@@ -31,48 +33,6 @@ function may__info() {
   })
   
 }
-
-function may__tables() {
-
-  $('.item table').prepend('<tr><th>追加日</th><th>キャンペーン</th></tr>');
-  $('td:nth-child(1)').attr('class','release');
-  
-  $('.item div:nth-of-type(1)').each(function() {
-    $(this).before('<h4 class="basic"><span>Basic</span></h4>');
-  });
-  $('.item div:nth-of-type(2)').each(function() {
-    $(this).before('<h4 class="music"><span>Music</span></h4>');
-  });
-  
-  $('.item').each(function() {
-    $(this).find('div').addClass('nodes');
-    
-    let $basicNew = 
-      '<a class="basic" target="_blank">https://gamerch.com/ensemble-star-basic/entry/' + 
-      $(this).attr('class').split(' ')[3] + '</a>';
-    let $musicNew = 
-      '<a class="music" target="_blank">https://gamerch.com/ensemble-star-music/entry/' + 
-      $(this).attr('class').split(' ')[4] + '</a>';
-    $(this).find('h4:nth-of-type(2)').before($basicNew);
-    $(this).find('.nodes:last').after($musicNew);
-    let $newLinkB = $(this).find('a.basic');
-    let $newLinkM = $(this).find('a.music');
-    $newLinkB.attr('href',$newLinkB.text());
-    $newLinkB.html('Gamerch');
-    $newLinkM.attr('href',$newLinkM.text());
-    $newLinkM.html('Gamerch');
-  });
-  
-  $('.nodes:nth-of-type(1)').each(function() {
-    let $text = $(this).text().split(',').join('</p><p>');
-    $(this).html('<p>' + $text + '</p>');
-  });
-  $('.nodes:nth-of-type(2)').each(function() {
-    let $text = $(this).text().split(',').join('</p><p>');
-    $(this).html('<p>' + $text + '</p>');
-  });
-  
-};
 
 function may__characters() {
   let $charEng = $('.item h3');
@@ -1024,3 +984,71 @@ function may__campaignOne() {
     $(this).text(campaignJP);
   })
 };
+
+function may__status() {
+  $('.item').each(function() {
+    let $card = $(this)
+    if ($card.hasClass('completeB') == false) {
+      $card.addClass('incompleteB');
+    };
+    if ($card.hasClass('completeM') == false) {
+      $card.addClass('incompleteM');
+    };
+  });
+};
+
+function may__container() {
+
+  $('.item table').prepend('<tr><th>追加日</th><th>キャンペーン</th></tr>');
+  $('td:nth-child(1)').attr('class','release');
+  
+  $('.item > div').each(function() {
+    $(this).addClass('infoContainer');
+  });
+  $('.infoContainer').each(function() {
+    let $item = $(this);
+    $item
+      .find('div:first')
+      .addClass('gridBasic');
+    $item
+      .find('div:not([class])')
+      .addClass('gridMusic');
+  });
+  
+  $('.item').each(function() {
+    let $item = $(this);
+    let $basicNew = 
+      '<a class="basic" target="_blank">https://gamerch.com/ensemble-star-basic/entry/' + 
+      $item.attr('class').split(' ')[3] + '</a>';
+    let $musicNew = 
+      '<a class="music" target="_blank">https://gamerch.com/ensemble-star-music/entry/' + 
+      $item.attr('class').split(' ')[4] + '</a>';
+    $item.find('div.infoContainer').append($basicNew);
+    $item.find('div.infoContainer').append($musicNew);
+    let $newLinkB = $(this).find('a.basic');
+    let $newLinkM = $(this).find('a.music');
+    $newLinkB.attr('href',$newLinkB.text());
+    $newLinkB.html('Gamerch');
+    $newLinkM.attr('href',$newLinkM.text());
+    $newLinkM.html('Gamerch');
+  });
+  
+  $('div.gridBasic').each(function() {
+    let $text = $(this).html().split(',').join('</p><p>');
+    $(this).html('<p>' + $text + '</p>');
+  });
+  $('div.gridMusic').each(function() {
+    let $text = $(this).html().split(',').join('</p><p>');
+    $(this).html('<p>' + $text + '</p>');
+  });
+  
+  $('.infoContainer').each(function() {
+    let $item = $(this);
+    $item
+      .find('div.gridBasic')
+      .prepend('<h4><span>Basic</span></h4>');
+    $item
+      .find('div.gridMusic')
+      .prepend('<h4><span>Music</span></h4>');
+  });
+}
