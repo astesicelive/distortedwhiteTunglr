@@ -695,9 +695,6 @@ function may__autoObtainType() {
       return name == $camapign;
     });
     
-    let check = $cur.find('h2').text() + $cur.find('h3').text() + ': ' + typeEvent + '/' + typeScout + '/' + typeTheme + '/' + typeFeature + '/' + typeLimited + '/' + typeOther;
-    console.log(check)
-    
     if (typeEvent != -1) {
       $cur.addClass('event');
     }
