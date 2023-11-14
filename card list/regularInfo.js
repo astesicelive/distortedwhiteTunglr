@@ -507,13 +507,17 @@ function may__campaignOne() {
 function campaignReplaceClass(item,array) {
   let $this = item;
   let arr = array;
+  let $cur;
   for (let l = 0; l < arr.length; l++) {
-    if ($this.text() == arr[l][0]) {
+    $cur = arr[l];
+    if ($this.text() == $cur[0]) {
       break;
     }
-  }
-  $this.closest('.item').addClass(arr[l][2]);
-  $this.text(arr[l][1]);
+  };
+  if ($this.text() == $cur[0]) {
+    $this.closest('.item').addClass($cur[2]);
+    $this.text($cur[1]);
+  };
 }
 
 // IR status
