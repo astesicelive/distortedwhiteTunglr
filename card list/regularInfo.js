@@ -507,7 +507,8 @@ function may__campaignOne() {
 function campaignReplaceClass(item,array) {
   let $this = item;
   let arr = array;
-  for (let l = 0; l < arr; l++) {
+  let l;
+  for (l = 0; l < arr; l++) {
     if ($this.text() == arr[l][0]) {
       break;
     }
